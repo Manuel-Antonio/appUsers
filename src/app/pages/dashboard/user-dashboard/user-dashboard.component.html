@@ -1,0 +1,47 @@
+<section>
+  <app-header></app-header>
+  <app-spinner *ngIf="!isLoading"></app-spinner>
+  <div class="container my-5" *ngIf="isLoading">
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <div>
+              <img
+                [src]="
+                  user?.gender === 'male'
+                    ? 'assets/img/user_male.png'
+                    : 'assets/img/user_female.png'
+                "
+                alt="Imagen de ejemplo"
+                class="style-img"
+              />
+            </div>
+            <div>
+              <h1>{{ user?.name }}</h1>
+              <p class="text-dark">{{ user?.email }}</p>
+              <p>
+                Estado:
+                <span
+                  class="badge"
+                  [ngClass]="
+                    user?.status === 'inactive' ? 'bg-danger' : 'bg-success'
+                  "
+                  >{{ user?.status }}</span
+                >
+              </p>
+              <p>
+                Genero: {{ user?.gender === "male" ? "Masculino" : "Femenino" }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+            <button type="button" routerLink="/dashboard" class="btn btn-primary mt-4 fw-bold">Volver al Dashboard</button>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <app-footer></app-footer>
+</section>

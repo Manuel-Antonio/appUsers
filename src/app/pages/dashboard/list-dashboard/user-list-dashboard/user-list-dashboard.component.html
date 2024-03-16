@@ -1,0 +1,26 @@
+<div class="card text-white bg-primary mb-3 mx-auto" style="max-width: 20rem">
+  <div class="card-header">
+    <span
+      class="badge"
+      [ngClass]="
+        userCurrent?.status === 'inactive' ? 'bg-danger' : 'bg-success'
+      "
+      >{{ userCurrent?.status }}</span
+    >
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{ userCurrent?.name }}</h4>
+    <div class="card-text">
+      <p class="m-0"><b>Email: </b>{{ userCurrent?.email }}</p>
+      <p class="m-0"><b>Genero:</b> {{ userCurrent?.gender === "male" ? "Masculino" : "Femenino" }}</p>
+    </div>
+  </div>
+  <div class="d-grid mb-3">
+    <a
+      type="button"
+      class="btn btn-light d-block w-75 m-auto text-uppercase fw-bold"
+      [routerLink]="['user', userCurrent?.id]"
+      >Ver usuario</a
+    >
+  </div>
+</div>

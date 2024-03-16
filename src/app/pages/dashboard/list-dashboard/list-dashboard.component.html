@@ -1,0 +1,25 @@
+<div>
+  <div>
+    <div class="d-flex justify-content-center mt-5">
+      <ul class="pagination pagination-lg">
+        <li class="page-item" [ngClass]="pageCurrent === 1 ? 'disabled' : ''">
+          <a class="page-link" (click)="previousPage()">&laquo; Anterior</a>
+        </li>
+        <li
+          class="page-item"
+          [ngClass]="pageCurrent === pageTotal ? 'disabled' : ''"
+        >
+          <a class="page-link" (click)="nextPage()">&raquo; Siguiente</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="fw-bold text-center">Pagina actual: {{ pageCurrent }}</p>
+  <app-spinner *ngIf="!isLoading"></app-spinner>
+  <div class="row my-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2" *ngIf="isLoading">
+    <app-user-list-dashboard
+      [userCurrent]="user"
+      *ngFor="let user of userList"
+    ></app-user-list-dashboard>
+  </div>
+</div>
